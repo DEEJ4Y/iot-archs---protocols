@@ -51,9 +51,9 @@ UDP is very similar to TCP. UDP is also for sending and receiving data. The main
 
 ### XMPP
 
-XMPP is a short form for Extensible Messaging Presence Protocol. It’s protocol for streaming XML elements over a network in order to exchange messages and presence information in close to real time. This protocol is mostly used by instant messaging applications like WhatsApp.
+XMPP is a short form for Extensible Messaging Presence Protocol. It's protocol for streaming XML elements over a network in order to exchange messages and presence information in close to real time. This protocol is mostly used by instant messaging applications like WhatsApp.
 
-Let’s dive into each character of word XMPP:
+Let's dive into each character of word XMPP:
 
 - X - Extensible : XMPP is a open source project which can be changed or extended according to the need.
 - M - Messaging : XMPP is designed for sending messages in real time. It has very efficient push mechanism compared to other protocols.
@@ -68,7 +68,7 @@ These are the basic requirements of any Instant Messenger which are fulfilled by
 - Manage contact list
 - Block communications(receive message, sharing presence status, etc) to specific users.
 
-Decentralised: XMPP is based on client-server architecture, i.e. clients don’t communicate directly, they do it with the help of server as intermediary. It is decentralised means there is no centralised XMPP server just like email, anyone can run their own XMPP server.
+Decentralised: XMPP is based on client-server architecture, i.e. clients don't communicate directly, they do it with the help of server as intermediary. It is decentralised means there is no centralised XMPP server just like email, anyone can run their own XMPP server.
 
 ### AMQP
 
@@ -90,10 +90,132 @@ Components of AMQP:
 
 ## Discuss the Service layer security protocols in detail
 
+The below protocols make use of IPv6 which is more secure than IPv4 by default. The protocols provide additional security features.
+
+- MAC IEEE 802.15.4: The Media Access Control (MAC) layer, specified by IEEE 802.15.4, is located between the physical and network layers. The MAC layer performs the following functions:
+  - Transfers data to the network layer and vice versa; transfers data to the physical layer and vice versa
+  - End device association and disassociation
+  - In the coordinator, offers optional guaranteed time slot (GTS) for each device accessing the network
+  - Generates the beacon frame in a coordinator
+  - Supports device security
+  - Provides carrier-sense multiple access with collision avoidance (CSMA/CA) as the access method for the network
+  - Provides a reliable connection between two MAC layers by using an acknowledgment
+- 6LoWPAN: 6LoWPAN is an IPv6 protocol, and It's extended from is IPv6 over Low Power Personal Area Network. It comprises an Edge Router and Sensor Nodes. Even the smallest of the IoT devices can now be part of the network, and the information can be transmitted to the outside world as well. For example, LED Streetlights.
+
+  Features of 6LoWPAN:
+
+  - It is used with IEEE 802.15,.4 in the 2.4 GHz band.
+  - Outdoor range: ~200 m (maximum)
+  - Data rate: 200kbps (maximum)
+  - Maximum number of nodes: ~100
+
+  Advantages of 6LoWPAN:
+
+  - 6LoWPAN security is ensured by the AES algorithm, which is a link layer security, and the transport layer security mechanisms are included as well.
+  - 6LoWPAN is a mesh network that is robust, scalable, and can heal on its own.
+  - It delivers low-cost and secure communication in IoT devices.
+  - It uses IPv6 protocol and so it can be directly routed to cloud platforms.
+  - It offers one-to-many and many-to-one routing.
+  - In the network, leaf nodes can be in sleep mode for a longer duration of time.
+
+- RPL: RPL stands for Routing Protocol for Low Power and Lossy Networks for heterogeneous traffic networks. It is a routing protocol for Wireless Networks. This protocol is based on the same standard as by Zigbee and 6 Lowpan is IEEE 802.15.4 It holds both many-to-one and one-to-one communication.
+
+  In an RPL Network, each node acts as a router and becomes part of a mesh network. Routing is performed at the IP Layer. Each node examines every received IPv6 packet and determines the next-hop destination based on the information contained in the IPv6 header. No information from the MAC layer header is needed to perform the next determination.
+
 ## Explain the Application layer security protocols in detail
+
+- [MQTT](https://github.com/DEEJ4Y/iot-archs---protocols/blob/main/CT-3.md#explain-mqtt-protocol-architecture-and-its-function-in-detail)
+- HTTP - Token based authentication: With token-based authentication, the application validates a user's credentials on their first login, then provides the client with a signed token. The client stores the token and then must provide it with every login request, helping to prevent against CSRF(Cross Site Request Forgery) attacks (where unauthorized commands are transmitted from a user that the application trusts).
+
+  Most protocols will have both a standard version and a secure version. While the standard version will be more lightweight and less secure, the secure version will be more complex, likely based on DLS, and offer more protection.
+
+- Encryption: Due to the structure of all the layers, an attack at a given layer can affect all of the layers above it, though not the ones below. And while it's critical to secure the transport layer and those other deeper layers on their own, you shouldn't always rely on those layers to handle all your encryption. If for some reason an attacker exploits a vulnerability in the transport layer, data not encrypted at the application layer could be suddenly available.
+
+  For this reason, it's always a good idea to follow best practices for encrypting your data at the application layer to avoid unplanned exposure.
+
+- Firewalls: You can also use application firewalls to guard your application layer, plus other layers as well. Keep in mind that most firewalls are built with specific applications in mind, though many firewalls can be configured for multiple applications.
+
+  The firewall can control all network traffic on any OSI layer up to the application layer. Basically, it makes sure that weird connections aren't happening in places you don't expect, and that all communications are following the desired protocols.
 
 ## Discuss the challenges faced by IoT systems
 
+The Internet Of Things has been facing many areas like Information Technology, Healthcare, Data Analytics and Agriculture.The main focus is on protecting privacy as it is the primary reason for other challenges including government participation. Integrated effort from the government, civil society and private sectors would play a vital role in protecting the following values given below in to prevent IoT from getting hampered:
+
+- Scalability:
+  Billions of internet-enabled devices get connected in a huge network, large volumes of data are needed to be processed. The system that stores, analyses the data from these IoT devices needs to be scalable. In present, the era of IoT evolution everyday objects are connected with each other via Internet. The raw data obtained from these devices need big data analytics and cloud storage for interpretation of useful data.
+
+- Interoperability:
+  Technological standards in most areas are still fragmented. These technologies need to be converged. Which would help us in establishing a common framework and the standard for the IoT devices. As the standardization process is still lacking, interoperability of IoT with legacy devices should be considered critical. This lack of interoperability is preventing us to move towards the vision of truly connected everyday interoperable smart objects.
+
+- Lack of government support:
+  Government and Regulatory bodies like FDA should come up and bring up regulations by setting up a standard committee for safety and security of devices and people.
+
+- Safety Of Patients:
+  Most Of IoT devices are left unattended, as they are connected with real-world objects. If used on patients as wearable devices, any technical error in security can be life-threatening for patient.
+
+- Security And Personal Privacy:
+  There has been no research in security vulnerabilities and its improvements. It should ensure Confidentiality, Integrity and Availability of personal data of patient.
+
+- Design Based Challenge:
+  With the development in technology design challenges are increasing at a faster rate. There have been issues regarding design like limited computation power, limited energy and limited memory which need to be sorted out.
+
 ## Discuss IoT security protocol 6LoWPAN in detail
 
+6LoWPAN is an IPv6 protocol, and It's extended from is IPv6 over Low Power Personal Area Network. 6LoWPAN allows communication using the IPv6 protocol.
+
+It comprises an Edge Router and Sensor Nodes. Even the smallest of the IoT devices can now be part of the network, and the information can be transmitted to the outside world as well. For example, LED Streetlights.
+
+- It is a technology that makes the individual nodes IP enabled.
+- 6LoWPAN can interact with 802.15.4 devices and also other types of devices on an IP Network. For example, Wi-Fi.
+- It uses AES 128 link layer security, which AES is a block cipher having key size of 128/192/256 bits and encrypts data in blocks of 128 bits each. This is defined in IEEE 802.15.4 and provides link authentication and encryption.
+
+Basic Requirements of 6LoWPAN:
+
+- The device should be having sleep mode in order to support the battery saving.
+- Minimal memory requirement.
+- Routing overhead should be lowered.
+
+Features of 6LoWPAN:
+
+- It is used with IEEE 802.15,.4 in the 2.4 GHz band.
+- Outdoor range: ~200 m (maximum)
+- Data rate: 200kbps (maximum)
+- Maximum number of nodes: ~100
+
+Advantages of 6LoWPAN:
+
+- 6LoWPAN is a mesh network that is robust, scalable, and can heal on its own.
+- It delivers low-cost and secure communication in IoT devices.
+- It uses IPv6 protocol and so it can be directly routed to cloud platforms.
+- It offers one-to-many and many-to-one routing.
+- In the network, leaf nodes can be in sleep mode for a longer duration of time.
+
+Disadvantages of 6LoWPAN:
+
+- It is comparatively less secure than Zigbee.
+- It has lesser immunity to interference than that Wi-Fi and Bluetooth.
+- Without the mesh topology, it supports a short range.
+
+Applications of 6LoWPAN:
+
+- It is a wireless sensor network.
+- It is used in home-automation,
+- It is used in smart agricultural techniques, and industrial monitoring.
+
+Security and Interoperability with 6LoWPAN:
+
+- Security: 6LoWPAN security is ensured by the AES algorithm, which is a link layer security, and the transport layer security mechanisms are included as well.
+- Interoperability: 6LoWPAN is able to operate with other wireless devices as well which makes it interoperable in a network.
+
 ## Discuss the Security applications and issues in RPL
+
+RPL standard offers three modes of security to
+ensure control messages' confidentiality and integrity:
+
+- UM: where only the link-layer security is applied, if available(default mode)
+- PSM: which uses preinstalled symmetrical encryption keys to secure RPL control messages
+- ASM: uses the preinstalled keys to let the nodes join the network, after that all routing-capable nodes must acquire new keys from an authentication authority.
+
+In addition, RPL providesan optional replay protection mechanism that employs the use of Consistency Check (CC) messages, only available in the preinstalled (PSMrp) or authenticated mode (ASMrp). PSM is able to mitigate most of the external attacks, while it does not enhance RPL's security against the internal attacks. Furthermore, external adversaries still can launch replay attacks, even when PSMrp is used.
+
+RPL standard only provides confidentiality and integrity of its control messages, without any verification of their authenticity. This opens the door wide open for attacks such as message-forging, identity-cloning, eavesdropping, and replay attacks to be launched regardless which RPL secure mode is running.
