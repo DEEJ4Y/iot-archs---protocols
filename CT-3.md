@@ -139,25 +139,18 @@ The below protocols make use of IPv6 which is more secure than IPv4 by default. 
 
 ## Discuss the challenges faced by IoT systems
 
-The Internet Of Things has been facing many areas like Information Technology, Healthcare, Data Analytics and Agriculture.The main focus is on protecting privacy as it is the primary reason for other challenges including government participation. Integrated effort from the government, civil society and private sectors would play a vital role in protecting the following values given below in to prevent IoT from getting hampered:
-
-- Scalability:
-  Billions of internet-enabled devices get connected in a huge network, large volumes of data are needed to be processed. The system that stores, analyses the data from these IoT devices needs to be scalable. In present, the era of IoT evolution everyday objects are connected with each other via Internet. The raw data obtained from these devices need big data analytics and cloud storage for interpretation of useful data.
-
-- Interoperability:
-  Technological standards in most areas are still fragmented. These technologies need to be converged. Which would help us in establishing a common framework and the standard for the IoT devices. As the standardization process is still lacking, interoperability of IoT with legacy devices should be considered critical. This lack of interoperability is preventing us to move towards the vision of truly connected everyday interoperable smart objects.
-
-- Lack of government support:
-  Government and Regulatory bodies like FDA should come up and bring up regulations by setting up a standard committee for safety and security of devices and people.
-
-- Safety Of Patients:
-  Most Of IoT devices are left unattended, as they are connected with real-world objects. If used on patients as wearable devices, any technical error in security can be life-threatening for patient.
-
-- Security And Personal Privacy:
-  There has been no research in security vulnerabilities and its improvements. It should ensure Confidentiality, Integrity and Availability of personal data of patient.
-
-- Design Based Challenge:
-  With the development in technology design challenges are increasing at a faster rate. There have been issues regarding design like limited computation power, limited energy and limited memory which need to be sorted out.
+- Unpredictable conduct
+  There is a huge amount of deployed devices with enabling technologies. This means that their behaviour in any sector can be unpredictable. The system may have a proper design and structure with a reformed administration but one cannot predict its interaction with other systems.
+- Similar devices
+  There are not many options for IoT devices and most of them are fairly similar. They make use of the same connection and network protocols. If one device gets a DDoS attack, it affects the rest of the devices too.
+- Difficult deployment
+  Deployment is a difficult process in IoT devices considering the fact that there are too many devices with internet connection. IoT aims to advance to areas and networks where it was impossible to enter before. These devices produce data every second. This creates difficulties in deploying devices.
+- Long device life and expired support
+  One of the major advantages of IoT devices is their extremely long life. However, this could mean that the working of IoT devices extends beyond their support and warranty periods. These devices lack security and are open sights for cybercriminals.
+- No upgradation support
+  Upgrades and modifications are not possible in many IoT devices. Many times the upgrades are difficult to enforce or go unnoticed by the users.
+- Poor or zero transparency
+  Iot devices have a reserved functionality, meaning there is no access to the inner working of IoT devices directly. Users can only assume the working of their devices as access to the inner components is not possible. They cannot control the data flow and information collection which leads to obtaining unnecessary information by the device.
 
 ## Discuss IoT security protocol 6LoWPAN in detail
 
